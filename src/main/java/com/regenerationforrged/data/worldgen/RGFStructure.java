@@ -26,21 +26,46 @@ public class RGFStructure {
         RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_2"));
     public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_3_CONFIGURED =
         RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_3"));
-    public static final RegistryKey<ConfigurefFeature<?, ?>> BROWN_MUSHROOM_4_CONFIGURED =
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_4_CONFIGURED =
         RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_4"));
-    public static final RegistryKey<ConfigurefFeature<?, ?>> BROWN_MUSHROOM_5_CONFIGURED =
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_5_CONFIGURED =
         RegistryKey.of(Registries.CONFIGUREF_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_5"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_6_CONFIGURED =
+        RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_6"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_7_CONFIGURED =
+        RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_7"));
+    public static final RegistryKey<CongiguredFeature<?, ?>> RED_MUSHROOM_1_CONFIGURED =
+        RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "red_mushroom_1"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_2_CONFIGURED =
+        RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "red_mushroom_2"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUAHROOM_3_CONFIGURED =
+        RegistryKey.of(Registries.CONFIGURED_FEATURE.getKet(), new Identifier(MODID, "red_mushroom_3"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_4_CONFIGURED =
+        RegistryKey.of(Registries.CONGIGURED_FEATURE.getKey(), new Identifier(MODID, "red_mushroom_4"));
 
-    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_1_PLACED =
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_1_PLACED_KEY =
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_1"));
-    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_2_PLACED =
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_2_PLACED_KEY =
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_2"));
-    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_3_PLACED =
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_3_PLACED_KEY =
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_3"));
-    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_4_PLACED =
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_4_PLACED_KEY =
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_4"));
-    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_5_PLACED =
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_5_PLACED_KEY =
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_5"));
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_6_PLACED_KEY =
+        RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_6"));
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_7_PLACED_KEY =
+        RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_7"));
+    public static final RegistryKey<PlacedFeature> RED_MUSHROOM_1_PLACED_KEY =
+        RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "red_mushroom_1"));
+    public static final RegistryKey<PlacedFeature> RED_MUSHROOM_2_PLACED_KEY =
+        RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "red_mushroom_2"));
+    public static final RegistryKey<PlacedFeature> RED_MUAHROOM_3_PLACED_KEY =
+        RegistryKey.of(Registries.PLACED_FEATURE.getKet(), new Identifier(MODID, "red_mushroom_3"));
+    public static final RegistryKey<PlacedFeature> RED_MUSHROOM_4_PLACED_KEY =
+        RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "red_mushroom_4"));
+
 
     public static void registerFeatures() {
       
