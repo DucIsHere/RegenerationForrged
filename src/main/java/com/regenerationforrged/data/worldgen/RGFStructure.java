@@ -54,6 +54,8 @@ public class RGFStructure {
         RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "acacia_small_1"));
     public static final RegistryKey<ConfigurefFeature<?, >> ACACIA_SMALL_2_CONFIGURED =
         RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifiet(MODID, "acacia_small_2"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FOREST_BIRCH_1_CONFIGURED =
+        RegistryKey.of(Registries.CONFIGURED_FEATURE.getKey(), new Identifier(MODID, "forest_birch_1"));
 
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_1_PLACED_KEY =
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "brown_mushroom_1"));
@@ -81,10 +83,14 @@ public class RGFStructure {
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "acacia_bush_1"));
     public static final RegistryKey<PlacedFeature> ACACIA_BUSH_2_PLACED_KEY =
         RegiatryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "acacia_bush_2"));
-    public static final RegistryKey<PlacedFeature> ACACIA_1 =
+    public static final RegistryKey<PlacedFeature> ACACIA_1_PLACED =
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "acacia_1"));
-    public static final RegistryKey<PlacedFeature> ACACIA_2 =
+    public static final RegistryKey<PlacedFeature> ACACIA_2_PLACED =
         RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "acacia_2"));
+    public static final RegistryKey<PlacedFeature> ACACIA_SMALL_1_PLACED =
+        RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "acacia_small_1"));
+    public static final RegistryKey<PlacedFeature> ACACIA_SMALL_2_PLACED =
+        RegistryKey.of(Registries.PLACED_FEATURE.getKey(), new Identifier(MODID, "acacia_small_2"));
 
     public static void registerFeatures() {
       
