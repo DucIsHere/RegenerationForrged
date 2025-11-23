@@ -7,6 +7,13 @@
 		"MixinBiomeGenerationSettings",
 		"MixinCaveWorldCaver",
 		"MixinChunkMap",
+		"MixinMinecraftServer",
+		"MixinNoiseChunk",
+		"MixinRandomState",
+		"MixinStructure",
+		"MixinSurfaceSystem",
+		"SerializableDataChunkMixin",
+		"TemperatureModifierMixin"
 		
 	],
 	"injectors": {
