@@ -1,5 +1,6 @@
 package com.regenerationforrged.mixin;
 
+import net.minecraft.world.level.levelgen.carver.CaveWorldCaver;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,4 +16,9 @@ public class CaveWorldCarverMixin {
     // https://www.minecraftforum.net/forums/minecraft-java-edition/recent-updates-and-snapshots/381672-it-seems-that-the-underground-is-no-longer-swiss?comment=27
     ci.setReturnValue(40);
   }
+
+  @Redirect(method = "carve", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/noise/NoiseSampler;sample(DDD)D"))
+    private double redirectCarveNoise(double x, double y, double z) {
+        return RegenerationForrgedPipeline.getInstance().warpSample(x, y, z);
+    }
 }
