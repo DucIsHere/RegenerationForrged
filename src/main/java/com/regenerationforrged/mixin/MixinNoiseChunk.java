@@ -12,7 +12,9 @@ public class MixinNoiseChunk {
     private NoiseRouter router;
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    private void 
+    private void rgf$injectCustomNoise(int x, int y, int z, NoiseRouter router, RandomState random, CallBackInfo ci) {
+        
+    }
 
     @Redirect(method = "sampleNoiseColumn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/noise/NoiseSampler;sample(DD)D"))
     private double redirectSampleNoiseColumn(double x, double z, ChunkAccess chunk) {
