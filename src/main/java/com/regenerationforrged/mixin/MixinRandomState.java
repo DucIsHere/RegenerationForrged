@@ -1,4 +1,4 @@
-package regenerationforrged.mixin;
+package com.regenerationforrged.mixin;
 
 import net.minecraft.world.level.levelgen.RandomState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,6 +16,6 @@ public class MixinRandomState {
 
     @Inject(method = "create", at = @At("RETURN"))
     private void rgf$SafterRandomStateInit(HolderLookup registry, CallBackInfoReturnable<RandomState> cir) {
-        
+        RGFNoiseRegistry.injectLarionNoises(cir.getReturnValue());
     }
 }
