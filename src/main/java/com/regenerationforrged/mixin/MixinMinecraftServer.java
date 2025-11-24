@@ -13,4 +13,9 @@ public class MixinMinecraftServer {
     private void initWorldgenPipeline(CallbackInfo ci) {
         RegenerationForrgedPipeline.initConfig();
     }
+
+    @Inject(method = "loadlevel", at = @At("TAIL"))
+    private void rgf$SafterWorldLoaded(CallBackInfo ci) {
+        RGFRegistry.finishBootstrap();
+    }
 }
