@@ -13,4 +13,9 @@ public class MixinRandomState {
     private void initSeedSync(long seed, CallbackInfoReturnable<Void> cir) {
         RegenerationForrgedPipeline.getInstance().setSeed(seed);
     }
+
+    @Inject(method = "create", at = @At("RETURN"))
+    private void rgf$SafterRandomStateInit(HolderLookup registry, CallBackInfoReturnable<RandomState> cir) {
+        
+    }
 }
