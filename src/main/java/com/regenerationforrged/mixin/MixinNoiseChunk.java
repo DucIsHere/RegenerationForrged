@@ -8,6 +8,11 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(NoiseChunk.class)
 public class MixinNoiseChunk {
+    @Shadow @Final
+    private NoiseRouter router;
+
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void 
 
     @Redirect(method = "sampleNoiseColumn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/noise/NoiseSampler;sample(DD)D"))
     private double redirectSampleNoiseColumn(double x, double z, ChunkAccess chunk) {
