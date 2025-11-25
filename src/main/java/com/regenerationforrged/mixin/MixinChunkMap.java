@@ -4,6 +4,7 @@ import net.minecraft.world.level.chunk.ChunkMap;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallBackInfo;
 
 @Mixin(ChunkMap.class)
 public class MixinChunkMap {
