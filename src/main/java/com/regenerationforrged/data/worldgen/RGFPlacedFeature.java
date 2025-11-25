@@ -90,6 +90,11 @@ public class RGFPlacedFeatures {
             new PlacedFeature(features.getOrThrow(RGFConfiguredFeatures.DARK_OAK_TREE),
                 PlacementModifiers.list(heightmap, count5))
         );
+
+        context.register(
+            Carvers.CAVE,
+            new PlacesCavers(RGFCongiguredCavers.CAVE)
+        );
     }
 
     private static RegistryKey<PlacedFeature> create(String id) {
