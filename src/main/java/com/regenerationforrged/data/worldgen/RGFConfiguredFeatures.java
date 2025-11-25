@@ -43,7 +43,7 @@ import com.regenerationforrged.world.worldgen.feature.DecorateSnowFeature;
 import com.regenerationforrged.world.worldgen.feature.ErodeFeature;
 import com.regenerationforrged.world.worldgen.feature.RTFFeatures;
 import com.regenerationforrged.world.worldgen.feature.SwampSurfaceFeature;
-import com.regenerationforrged.data.worldgen.feature.chance.ChanceFeature;
+import com.regenerationforrged.world.worldgen.feature.chance.ChanceFeature;
 import com.regenerationforrged.world.worldgen.feature.chance.ChanceModifier;
 import com.regenerationforrged.world.worldgen.feature.template.TemplateFeature;
 import com.regenerationforrged.world.worldgen.feature.template.decorator.DecoratorConfig;
