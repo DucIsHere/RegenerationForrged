@@ -100,4 +100,20 @@ public class RGFPlacedFeatures {
     private static RegistryKey<PlacedFeature> create(String id) {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, RGFCommon.id(id));
     }
+
+    public static final ResourceKey<PlacedFeature> RIVER_PLACED =
+            ResourceKey.create(Regiatries.PLACED_FEATURE, id("river"));
+
+    public static void bootstrap(BootstrapContext<PlacedFeature> ctx) {
+
+        HolderGetter<ConfiguredFeature<?, ?>> configured =
+            ctx.lookup(Registries.CONFIGURED_FEATURE);
+
+        PlacementUtils.register(
+            ctx,
+            RIVER_PLACED,
+            configured.getOrThrow(RGFConfiguredFeatures.RIVER),
+            PlacementUtils.FULL_RANGE
+        );
+    }
 }
