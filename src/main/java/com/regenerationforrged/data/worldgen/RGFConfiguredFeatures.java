@@ -93,6 +93,30 @@ public class RGFConfiguredFeatures {
 	    }
 	}
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> RIVER =
+        ResourceKey.create(Registries.CONFIGURED_FEATURE, id("river"));
+
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
+
+        RiverConfig cfg = new RiverConfig(
+                12,
+                5,
+                0.005,
+                0.15,
+                Blocks.GRAVEL.defaultBlockState(),
+                Heightmap.Types.WORLD_SURFACE_WG,
+                NormalNoise.create(new NormalNoise.NoiseParameters(1, 0.6F), 12345)
+        );
+
+        FeatureUtils.register(
+                ctx,
+                RIVER,
+                RGFFeatures.RGF_RIVER,
+                cfg
+        );
+    }
+
+
 	private static BushFeature.Config makeSmallBush(Block log, Block leaves, float air, float leaf, float size) {
 		return new BushFeature.Config(log.defaultBlockState(), leaves.defaultBlockState(), air, leaf, size);
 	}
