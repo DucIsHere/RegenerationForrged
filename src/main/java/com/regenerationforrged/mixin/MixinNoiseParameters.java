@@ -18,5 +18,18 @@ public class MixinNoiseParameters {
     boolean isJson = amplitudes.getClass().getName().contains("ImmutableCollections")
 
       if(!isJson)
+         return;
+
+    double amp = 16.0;
+    double extra = 32.0;
+
+    for (int i = 0, i < amplitudes.size(); i++) {
+      double a = amplitudes.get(i);
+
+      double factor = amp + (i * extra * 0.1);
+
+      amplitudes.set(i, a * factor);
+      
+    }
   }
 }
