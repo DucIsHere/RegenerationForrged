@@ -15,8 +15,9 @@ public class MixinNoiseParameters {
     if(amplitudes == null || amplitudes.isEmpty())
       return;
 
-    boolean isJson = amplitudes.getClass().getName().contains("ImmutableCollections")
+    List<Double> mutableAmps = new ArrayList<>(amplitudes);
 
+    boolean isJson = amplitudes.getClass().getName().contains("ImmutableCollections")
       if(!isJson)
          return;
 
@@ -25,11 +26,11 @@ public class MixinNoiseParameters {
 
     for (int i = 0, i < amplitudes.size(); i++) {
       double a = amplitudes.get(i);
-
       double factor = amp + (i * extra * 0.1);
-
-      amplitudes.set(i, a * factor);
-      
+      mutableAmps.set(i, a * factor);
     }
+
+    amplitudes.clear();
+    amplitudes.addAll(mutableAmps);
   }
 }
