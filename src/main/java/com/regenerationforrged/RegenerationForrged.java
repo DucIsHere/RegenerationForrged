@@ -11,7 +11,7 @@ public class RegenerationForrged implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		RGFStructure.registerFeature();
+		
 
 		LOGGER.info("Hello Fabric world!");
 	}
