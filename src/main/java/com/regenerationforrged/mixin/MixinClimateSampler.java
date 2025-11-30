@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(ClimateSampler.class)
 public class MixinClimateSampler {
 
-  @ModifyVariable(method = "sample(III)Lnet/minecraft/world/gen/Climate$TargetPoint", at = @At("HEAD"), ordianl = 0)
+  @ModifyVariable(method = "sample(III)Lnet/minecraft/world/gen/Climate$TargetPoint", at = @At("HEAD"), ordinal = 0)
   private init amplifyX(init x) {
     return x / 8;
   }
