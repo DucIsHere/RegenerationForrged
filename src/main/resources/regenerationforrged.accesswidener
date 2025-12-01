@@ -1,0 +1,7 @@
+accessWidner v2 named
+
+accessiable class net.minecraft.world.level.levelgen.NoiseParameters
+mutable field net.minecraft.world.level.levelgen.NoiseParameters.firstOctave I
+mutable field net.minecraft.world.level.levelgen.NoiseParameters.amplitudes D
+mutable field net.minecraft.world.level.levelgen.NoiseParameters.legacyNoise Z
+
