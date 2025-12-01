@@ -21,8 +21,8 @@ public class MixinNoiseParameters {
       if(!isJson)
          return;
 
-    double amp = 16.0;
-    double extra = 32.0;
+    double amp = 24.0;
+    double extra = 48.0;
 
     for (int i = 0, i < amplitudes.size(); i++) {
       double a = amplitudes.get(i);
