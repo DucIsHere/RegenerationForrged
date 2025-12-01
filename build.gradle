@@ -47,6 +47,10 @@ dependencies {
 	
 }
 
+minecraft {
+	accessWidener = file("src/main/resources/regenerationforrged.accesswidener")
+}
+
 processResources {
 	inputs.property "version", project.version
 
