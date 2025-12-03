@@ -19,27 +19,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class RegenerationForrged implements ModInitializer {
-	public static final String MOD_ID = "regenerationforrged";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final String MOD_ID = "regenerationforrged";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final GeneratorType VOID = new GeneratorType("void") {
-		protected ChunkGenerator getChunkGenerator(Registry<Biome> biomeRegistry,
-        Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry, long seed) {
-        FlatChunkGeneratorConfig config = new FlatChunkGeneratorConfig(
-        new StructuresConfig(Optional.empty(), Collections.emptyMap()), biomeRegistry);
-        config.updateLayerBlocks();
-        return new FlatChunkGenerator(config);
+    // Custom GeneratorType VOID
+    public static final GeneratorType VOID = new GeneratorType("void") {
+        @Override
+        protected ChunkGenerator getChunkGenerator(Registry<Biome> biomeRegistry,
+                                                   Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry,
+                                                   long seed) {
+            FlatChunkGeneratorConfig config = new FlatChunkGeneratorConfig(
+                    new StructuresConfig(Optional.empty(), Collections.emptyMap()), biomeRegistry);
+            config.updateLayerBlocks();
+            return new FlatChunkGenerator(config);
+        }
+    };
 
-	};
-	
-
-
-
-
-	@Override
-	public void onInitialize() {
+    @Override
+    public void onInitialize() {
 		ChunkManager.register();
 
-		LOGGER.info("Hello Fabric world!");
-	}
+        LOGGER.info("Hello Fabric world!");
+    }
 }
