@@ -1,51 +1,50 @@
-package com.regenerationforrged.data.worldgen.preset;
+package com.regenerationforrged.data.worldgen.preset.settings;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.valueproviders.UniformFloat;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.carver.CaveCarverConfiguration;
-import net.minecraft.world.level.levelgen.carver.WorldCarver;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-public record CaveSettings(
-        boolean cavesEnabled,
-        float caveProbability,
-        float caveYScale,
-        float caveSize,
-        float caveHorizontalStretch,
-        float caveVerticalStretch,
-        float caveFloorLevel
-) {
+public class CaveSettings {
+	public static final Codec<CaveSettings> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+		Codec.FLOAT.fieldOf("entranceCaveProbability").forGetter((o) -> o.entranceCaveProbability),
+		Codec.FLOAT.fieldOf("cheeseCaveDepthOffset").forGetter((o) -> o.cheeseCaveDepthOffset),
+		Codec.FLOAT.fieldOf("cheeseCaveProbability").forGetter((o) -> o.cheeseCaveProbability),
+		Codec.FLOAT.fieldOf("spaghettiCaveProbability").forGetter((o) -> o.spaghettiCaveProbability),
+		Codec.FLOAT.fieldOf("noodleCaveProbability").forGetter((o) -> o.noodleCaveProbability),
+		Codec.FLOAT.fieldOf("caveCarverProbability").forGetter((o) -> o.caveCarverProbability),
+		Codec.FLOAT.fieldOf("deepCaveCarverProbability").forGetter((o) -> o.deepCaveCarverProbability),
+		Codec.FLOAT.fieldOf("ravineCarverProbability").forGetter((o) -> o.ravineCarverProbability),
+		Codec.BOOL.fieldOf("largeOreVeins").forGetter((o) -> o.largeOreVeins),
+		Codec.BOOL.fieldOf("legacyCarverDistribution").forGetter((o) -> o.legacyCarverDistribution)
+	).apply(instance, CaveSettings::new));
 
-    public static final ResourceKey<WorldCarver<?>> RGF_CAVES =
-            ResourceKey.create(Registries.CARVER, new ResourceLocation("rgf", "caves"));
+	public float entranceCaveProbability;
+	public float cheeseCaveDepthOffset;
+	public float cheeseCaveProbability;
+	public float spaghettiCaveProbability;
+	public float noodleCaveProbability;
+	public float caveCarverProbability;
+	public float deepCaveCarverProbability;
+	public float ravineCarverProbability;
+	public boolean largeOreVeins;
+	public boolean legacyCarverDistribution;
+	
+	//TODO
+	public boolean minCaveBiomeDepth;
 
-    public static CaveSettings defaults() {
-        return new CaveSettings(
-                true,          // cavesEnabled
-                0.18F,         // caveProbability
-                1.35F,         // yScale (RGF height cao hơn vanilla phải buff)
-                0.5F,          // caveSize
-                1.0F,          // horizontal stretch
-                1.2F,          // vertical stretch
-                -0.2F          // floorLevel (RGF depth sâu hơn → floor thấp)
-        );
-    }
-
-    public CaveCarverConfiguration toConfig() {
-        return new CaveCarverConfiguration(
-                this.caveProbability,
-                UniformFloat.of(-1.0F, 1.0F),
-                UniformFloat.of(this.caveSize * 0.75F, this.caveSize * 1.25F),
-                VerticalAnchor.absolute(-256),     // min RGF depth
-                VerticalAnchor.absolute(720),      // max RGF height
-                this.caveYScale,
-                this.caveHorizontalStretch,
-                this.caveVerticalStretch,
-                this.caveFloorLevel
-        );
-    }
+	public CaveSettings(float entranceCaveProbability, float cheeseCaveDepthOffset, float cheeseCaveProbability, float spaghettiCaveProbability, float noodleCaveProbability, float caveCarverProbability, float deepCaveCarverProbability, float ravineProbability, boolean largeOreVeins, boolean legacyCarverDistribution) {
+		this.entranceCaveProbability = entranceCaveProbability;
+		this.cheeseCaveDepthOffset = cheeseCaveDepthOffset;
+		this.cheeseCaveProbability = cheeseCaveProbability;
+		this.spaghettiCaveProbability = spaghettiCaveProbability;
+		this.noodleCaveProbability = noodleCaveProbability;
+		this.caveCarverProbability = caveCarverProbability;
+		this.deepCaveCarverProbability = deepCaveCarverProbability;
+		this.ravineCarverProbability = ravineProbability;
+		this.largeOreVeins = largeOreVeins;
+		this.legacyCarverDistribution = legacyCarverDistribution;
+	}
+	
+	public CaveSettings copy() {
+		return new CaveSettings(this.entranceCaveProbability, this.cheeseCaveDepthOffset, this.cheeseCaveProbability, this.spaghettiCaveProbability, this.noodleCaveProbability, this.caveCarverProbability, this.deepCaveCarverProbability, this.ravineCarverProbability, this.largeOreVeins, this.legacyCarverDistribution);
+	}
 }
-
-
