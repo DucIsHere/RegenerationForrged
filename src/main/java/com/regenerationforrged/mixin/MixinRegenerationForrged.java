@@ -20,7 +20,8 @@ public class MixinRegenerationForrged {
     }
 
     @Inject(method = "createFliudPicker", at = @At("HEAD"), cancellable = true)
-    private static void createFliudPicker(NoiseGeneratorSettings settings, 
+    private static void createFliudPicker(NoiseGeneratorSettings settings, CallbackInfoReturnable<Aquifer.FluidPicker> ci)
+
         CallBackInfoReturnable<Aquifer.FluidPicker> ci) {
         var lavaSeaLevel = settings.noiseSettings().minY() + 10;
         Aquifer.FluidStatus lavaFluidStatus = new Aquifer.FluidStatus(lavaSeaLevel, Blocks.LAVA.defaultBlockState());
