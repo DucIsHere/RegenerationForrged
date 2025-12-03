@@ -14,19 +14,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallBackInfoReturnable;
 
 @Mixin(RegenerationForrged.class)
 public class MixinRegenerationForrged {
-	@Inject(at = @At("HEAD"), method = "loadLevel")
-	private void init(CallbackInfo info) {
-		// This code is injected into the start of MinecraftServer.loadLevel()V
-    }
+    @Inject(method = "createFluidPicker", at = @At("HEAD"), cancellable = true)
+    private static void createFluidPicker(NoiseGeneratorSettings settings,
+            CallbackInfoReturnable<Aquifer.FluidPicker> cir) {
 
-    @Inject(method = "createFliudPicker", at = @At("HEAD"), cancellable = true)
-    private static void createFliudPicker(NoiseGeneratorSettings settings, CallbackInfoReturnable<Aquifer.FluidPicker> ci)
+        int lavaSea = settings.noiseSettings().minY() + 10;
+        var lavaStatus = new Aquifer.FluidStatus(lavaSea, Blocks.LAVA.defaultBlockState());
 
-        CallBackInfoReturnable<Aquifer.FluidPicker> ci) {
-        var lavaSeaLevel = settings.noiseSettings().minY() + 10;
-        Aquifer.FluidStatus lavaFluidStatus = new Aquifer.FluidStatus(lavaSeaLevel, Blocks.LAVA.defaultBlockState());
-        int i = settings.seaLevel();
-        Aquifer.FluidStatus defaultFluidStatus = new Aquifer.FluidStatus(i, settings.defaultFluid());
-        ci.setReturnValue((x, y, z) -> y < Math.min(lavaSeaLevel, i) ? lavaFluidStatus : defaultFluidStatus);
+        int sea = settings.seaLevel();
+        var defaultStatus = new Aquifer.FluidStatus(sea, settings.defaultFluid());
+
+        cir.setReturnValue((x, y, z) -> y < Math.min(lavaSea, sea) ? lavaStatus : defaultStatus);
     }
 }
